@@ -10,10 +10,11 @@ public class Util {
     public static final String USERNAME = "root";
     public static final String PASSWORD = "root";
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection connection;
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            connection.setAutoCommit(false);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
